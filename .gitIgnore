@@ -1,0 +1,21 @@
+## MAC OS
+.DS_Store
+
+## Java
+.gradle
+*.iml
+*.ipr
+*.iws
+*.ids
+*.log
+*.txt
+out
+build
+bin
+dist
+test-output
+.build.gradle.swp
+.gradletasknamecache
+.settings
+.classpath
+.project
