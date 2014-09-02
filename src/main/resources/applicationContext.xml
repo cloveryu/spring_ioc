@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="bookService" class="com.clover.training.service.BookService">
+        <property name="finder" ref="colonBookFinder" />
+    </bean>
+
+    <bean id="colonBookFinder" class="com.clover.training.repository.ColonBookFinder">
+        <constructor-arg index="0" value="book.txt" />
+    </bean>
+
+</beans>
