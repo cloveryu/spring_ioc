@@ -25,4 +25,8 @@ public class BookService {
         return result;
     }
 
+    public List<Book> listBooks() throws IOException {
+        return finder.findAll();
+    }
+
 }

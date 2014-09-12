@@ -51,4 +51,8 @@ public class Book {
     public boolean wroteBy(String author) {
         return this.author.equals(author);
     }
+
+    public String print() {
+        return isbn + ", " + name + ", " + author + ";";
+    }
 }
