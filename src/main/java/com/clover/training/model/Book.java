@@ -1,9 +1,18 @@
 package com.clover.training.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="t_book")
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ISBN")
     private String isbn;
+    @Column(name = "NAME", length = 50)
     private String name;
+    @Column(name = "AUTHOR", length = 50)
     private String author;
 
     public Book() {

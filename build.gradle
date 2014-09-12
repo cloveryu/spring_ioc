@@ -6,12 +6,20 @@ repositories {
 }
 
 springVersion = '4.0.6.RELEASE'
+hibernateVersion = '4.3.6.Final'
 
 dependencies {
     compile (
+        "org.hibernate:hibernate-core:$hibernateVersion",
+        "org.hibernate:hibernate-entitymanager:$hibernateVersion",
         "org.springframework:spring-core:$springVersion",
-        "org.springframework:spring-test:$springVersion",
-        "org.springframework:spring-context:$springVersion"
+        "org.springframework:spring-context:$springVersion",
+        "org.springframework:spring-orm:$springVersion",
+        "org.springframework:spring-tx:$springVersion"
+    )
+    runtime (
+        "mysql:mysql-connector-java:5.1.32",
+        "c3p0:c3p0:0.9.1.2"
     )
     testCompile (
         "junit:junit:4.11",
