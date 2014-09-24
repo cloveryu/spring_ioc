@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,12 +14,14 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+@Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
 public class BookServiceTest {
 
     @Autowired
     private BookService bookService;
+    public static final String ISBN = "9787111446231";
 
     @Test
     public void should_return_books_by_given_author() throws IOException {
@@ -28,6 +31,27 @@ public class BookServiceTest {
 
         assertThat(books.size(), is(1));
         assertThat(books.get(0).getAuthor(), is(author));
+    }
+
+    @Test
+    public void should_return_books_by_isbn() throws IOException {
+        Book book = bookService.findByISBN(ISBN);
+
+        assertThat(book.getAuthor(), is("David Herman"));
+    }
+
+    @Test
+    public void should_save_book() throws IOException {
+        String bookName = "clover";
+        String isbn = "123";
+
+        bookService.save(newBook(isbn, bookName, "test"));
+
+        assertThat(bookService.findByISBN(isbn).getName(), is(bookName));
+    }
+
+    private Book newBook(String isbn, String bookName, String author) {
+        return new Book(isbn, bookName, author);
     }
 
 }

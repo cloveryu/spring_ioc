@@ -8,7 +8,9 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ISBN")
+    @Column(name="ID")
+    private long id;
+    @Column(name = "ISBN", length = 25)
     private String isbn;
     @Column(name = "NAME", length = 50)
     private String name;
@@ -16,6 +18,11 @@ public class Book {
     private String author;
 
     public Book() {
+    }
+
+    public Book(String name, String author) {
+        this.name = name;
+        this.author = author;
     }
 
     public Book(String isbn, String name, String author) {

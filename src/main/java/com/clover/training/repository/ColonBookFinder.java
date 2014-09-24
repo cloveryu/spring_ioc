@@ -36,4 +36,19 @@ public class ColonBookFinder implements BookFinder {
         br.close();
         return books;
     }
+
+    @Override
+    public Book findByISBN(String isbn) throws IOException {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void save(Book book) throws IOException {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void update(Book book) throws IOException {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

@@ -9,4 +9,10 @@ public interface BookFinder {
 
     List<Book> findAll() throws IOException;
 
+    Book findByISBN(String isbn) throws IOException;
+
+    void save(Book book) throws IOException;
+
+    void update(Book book) throws IOException;
+
 }
