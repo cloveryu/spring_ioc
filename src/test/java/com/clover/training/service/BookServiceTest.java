@@ -38,12 +38,16 @@ public class BookServiceTest {
         assertThat(book.getAuthor(), is("David Herman"));
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void should_save_book() throws Exception {
         String bookName = "clover";
         String isbn = "123";
 
-        bookService.save(newBook(isbn, bookName, "test"));
+        try {
+            bookService.save(newBook(isbn, bookName, "test"));
+        } catch (IOException e) {
+
+        }
 
         assertThat(bookService.findByISBN(isbn).getName(), is(bookName));
     }

@@ -37,9 +37,10 @@ public class BookService {
         return finder.findByISBN(isbn);
     }
 
-    @Transactional
+    @Transactional()
     public void save(Book book) throws IOException {
         finder.save(book);
+        throw new IOException();
     }
 
     @Transactional
